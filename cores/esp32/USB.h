@@ -93,6 +93,7 @@ public:
 
   bool enableDFU();
   bool begin();
+  void end();
   operator bool() const;
 
 private:

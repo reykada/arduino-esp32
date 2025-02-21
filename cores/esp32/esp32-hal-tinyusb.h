@@ -74,6 +74,7 @@ typedef struct {
   }
 
 esp_err_t tinyusb_init(tinyusb_device_config_t *config);
+esp_err_t tinyusb_deinit(void);
 
 /*
  * USB Persistence API

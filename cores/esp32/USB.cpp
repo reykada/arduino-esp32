@@ -148,6 +148,7 @@ ESPUSB::ESPUSB(size_t task_stack_size, uint8_t event_task_priority)
 }
 
 ESPUSB::~ESPUSB() {
+  end();
   if (arduino_usb_event_loop_handle) {
     esp_event_loop_delete(arduino_usb_event_loop_handle);
     arduino_usb_event_loop_handle = NULL;
@@ -184,6 +185,13 @@ bool ESPUSB::begin() {
     _started = tinyusb_init(&tinyusb_device_config) == ESP_OK;
   }
   return _started;
+}
+
+ESPUSB::end() {
+  if (_started) {
+    tinyusb_deinit();
+    _started = false;
+  }
 }
 
 void ESPUSB::onEvent(esp_event_handler_t callback) {

@@ -810,6 +810,8 @@ esp_err_t tinyusb_enable_interface2(tinyusb_interface_t interface, uint16_t desc
   return ESP_OK;
 }
 
+static TaskHandle_t xUSBDeviceTaskHandle = NULL;
+
 esp_err_t tinyusb_init(tinyusb_device_config_t *config) {
   if (tinyusb_is_initialized) {
     return ESP_OK;
@@ -846,8 +848,62 @@ esp_err_t tinyusb_init(tinyusb_device_config_t *config) {
     tinyusb_is_initialized = false;
     return err;
   }
-  xTaskCreate(usb_device_task, "usbd", 4096, NULL, configMAX_PRIORITIES - 1, NULL);
+  xTaskCreate(usb_device_task, "usbd", 4096, NULL, configMAX_PRIORITIES - 1, &xUSBDeviceTaskHandle);
   return err;
+}
+
+esp_err_t tinyusb_deinit(void) {
+  if (!tinyusb_is_initialized) {
+      return ESP_OK;
+  }
+
+  if(xUSBDeviceTaskHandle != NULL)
+  {
+      vTaskDelete(xUSBDeviceTaskHandle);
+  }
+
+#if CONFIG_IDF_TARGET_ESP32P4
+  tud_deinit(1);
+#else
+  tud_deinit(0);
+#endif
+
+  // Free the configuration descriptor
+  if (tinyusb_config_descriptor != NULL) {
+      free(tinyusb_config_descriptor);
+      tinyusb_config_descriptor = NULL;
+  }
+
+  // Reset the interface masks and callbacks
+  tinyusb_loaded_interfaces_mask = 0;
+  tinyusb_loaded_interfaces_num = 0;
+  tinyusb_config_descriptor_len = 0;
+  memset(tinyusb_loaded_interfaces_callbacks, 0, sizeof(tinyusb_loaded_interfaces_callbacks));
+
+  // Reset endpoints tracking
+  tinyusb_endpoints.val = 0;
+
+  // Reset string descriptors
+  tinyusb_string_descriptor_len = 4; // Reset to initial value (language + manufacturer + product + serial)
+  for (int i = 4; i < MAX_STRING_DESCRIPTORS; i++) {
+      tinyusb_string_descriptor[i] = NULL;
+  }
+
+  // Deinitialize USB hardware
+  esp_err_t err = deinit_usb_hal();
+  if (err != ESP_OK) {
+      log_e("USB HAL deinit failed");
+      return err;
+  }
+
+#if CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3
+  // Reset USB module
+  periph_ll_reset(PERIPH_USB_MODULE);
+  periph_ll_disable_clk_set_rst(PERIPH_USB_MODULE);
+#endif
+
+  tinyusb_is_initialized = false;
+  return ESP_OK;
 }
 
 uint8_t tinyusb_add_string_descriptor(const char *str) {
