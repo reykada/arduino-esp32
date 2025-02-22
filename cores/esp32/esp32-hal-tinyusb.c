@@ -158,6 +158,15 @@ esp_err_t deinit_usb_hal() {
   return ret;
 }
 
+void usb_reset(void) {
+  // Force the host to re-enumerate (BUS_RESET)
+  pinMode(USBPHY_DM_NUM, OUTPUT_OPEN_DRAIN);
+  pinMode(USBPHY_DP_NUM, OUTPUT_OPEN_DRAIN);
+  digitalWrite(USBPHY_DM_NUM, LOW);
+  digitalWrite(USBPHY_DP_NUM, LOW);
+  delay(15);
+}
+
 #else
 
 #error No way to initialize USP PHY
@@ -812,7 +821,7 @@ esp_err_t tinyusb_enable_interface2(tinyusb_interface_t interface, uint16_t desc
 
 static TaskHandle_t xUSBDeviceTaskHandle = NULL;
 
-esp_err_t tinyusb_init(tinyusb_device_config_t *config) {
+esp_err_t tinyusb_init(tinyusb_device_config_t *config, bool reset_bus) {
   if (tinyusb_is_initialized) {
     return ESP_OK;
   }
@@ -837,6 +846,11 @@ esp_err_t tinyusb_init(tinyusb_device_config_t *config) {
     // Reset USB module
     periph_ll_reset(PERIPH_USB_MODULE);
     periph_ll_enable_clk_clear_rst(PERIPH_USB_MODULE);
+  }
+
+  if (reset_bus) {
+    // Reset USB bus
+    usb_reset();
   }
 #endif
 

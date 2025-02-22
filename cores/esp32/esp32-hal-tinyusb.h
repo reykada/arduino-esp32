@@ -73,7 +73,7 @@ typedef struct {
     .webusb_enabled = false, .webusb_url = "espressif.github.io/arduino-esp32/webusb.html"                                                                     \
   }
 
-esp_err_t tinyusb_init(tinyusb_device_config_t *config);
+esp_err_t tinyusb_init(tinyusb_device_config_t *config, bool reset_bus);
 esp_err_t tinyusb_deinit(void);
 
 /*
