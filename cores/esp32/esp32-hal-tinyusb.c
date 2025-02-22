@@ -871,15 +871,18 @@ esp_err_t tinyusb_deinit(void) {
       return ESP_OK;
   }
 
+  tud_disconnect();
+  delay(10); // Даем время хосту обработать отключение
+
   if(xUSBDeviceTaskHandle != NULL)
   {
       vTaskDelete(xUSBDeviceTaskHandle);
   }
 
 #if CONFIG_IDF_TARGET_ESP32P4
-  tud_deinit(1);
+  tusb_rhport_teardown(1);
 #else
-  tud_deinit(0);
+  tusb_rhport_teardown(0);
 #endif
 
   // Free the configuration descriptor
