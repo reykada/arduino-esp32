@@ -187,7 +187,7 @@ bool ESPUSB::begin() {
   return _started;
 }
 
-ESPUSB::end() {
+void ESPUSB::end() {
   if (_started) {
     tinyusb_deinit();
     _started = false;
