@@ -155,7 +155,7 @@ ESPUSB::~ESPUSB() {
   }
 }
 
-bool ESPUSB::begin() {
+bool ESPUSB::begin(bool reset_bus) {
   if (!_started) {
 #if CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3
     if (serial_number == "__MAC__") {
@@ -182,7 +182,7 @@ bool ESPUSB::begin() {
       .webusb_enabled = webusb_enabled,
       .webusb_url = webusb_url.c_str()
     };
-    _started = tinyusb_init(&tinyusb_device_config) == ESP_OK;
+    _started = tinyusb_init(&tinyusb_device_config, reset_bus) == ESP_OK;
   }
   return _started;
 }

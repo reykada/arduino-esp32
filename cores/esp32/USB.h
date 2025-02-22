@@ -92,7 +92,7 @@ public:
   const char *webUSBURL(void);
 
   bool enableDFU();
-  bool begin();
+  bool begin(bool reset_bus = true);
   void end();
   operator bool() const;
 
