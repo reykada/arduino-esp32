@@ -159,6 +159,12 @@ esp_err_t deinit_usb_hal() {
 }
 
 void usb_reset(void) {
+  // Do not use external PHY
+  CLEAR_PERI_REG_MASK(USB_SERIAL_JTAG_CONF0_REG, USB_SERIAL_JTAG_PHY_SEL);
+
+  // Release GPIO pins from  CDC+JTAG
+  CLEAR_PERI_REG_MASK(USB_SERIAL_JTAG_CONF0_REG, USB_SERIAL_JTAG_USB_PAD_ENABLE);
+
   // Force the host to re-enumerate (BUS_RESET)
   pinMode(USBPHY_DM_NUM, OUTPUT_OPEN_DRAIN);
   pinMode(USBPHY_DP_NUM, OUTPUT_OPEN_DRAIN);
