@@ -229,6 +229,7 @@ void USBMSC::end() {
   msc_luns[_lun].start_stop = NULL;
   msc_luns[_lun].read = NULL;
   msc_luns[_lun].write = NULL;
+  MSC_ACTIVE_LUN = 0;
 }
 
 void USBMSC::vendorID(const char *vid) {
