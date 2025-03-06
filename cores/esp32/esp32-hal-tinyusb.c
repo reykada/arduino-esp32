@@ -484,6 +484,9 @@ __attribute__((weak)) int32_t tud_msc_scsi_cb(uint8_t lun, uint8_t const scsi_cm
 __attribute__((weak)) bool tud_msc_is_writable_cb(uint8_t lun) {
   return false;
 }
+__attribute__((weak)) void tud_msc_write10_complete_cb(uint8_t lun) {
+  return;
+}
 #endif
 #if CFG_TUD_NCM
 __attribute__((weak)) bool tud_network_recv_cb(const uint8_t *src, uint16_t size) {

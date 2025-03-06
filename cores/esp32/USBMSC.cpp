@@ -42,6 +42,7 @@ typedef struct {
   bool (*start_stop)(uint8_t power_condition, bool start, bool load_eject);
   int32_t (*read)(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufsize);
   int32_t (*write)(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize);
+  void (*write_complete)(void);
 } msc_lun_t;
 
 static const uint8_t MSC_MAX_LUN = 3;
@@ -130,6 +131,20 @@ int32_t tud_msc_write10_cb(uint8_t lun, uint32_t lba, uint32_t offset, uint8_t *
     return msc_luns[lun].write(lba, offset, buffer, bufsize);
   }
   return 0;
+}
+
+// Callback invoked when WRITE10 command is completed (status received and
+// accepted by host). used to flush any pending cache.
+void tud_msc_write10_complete_cb(uint8_t lun) {
+  if (!msc_luns[lun].media_present) {
+    return;
+  }
+  if (!msc_luns[lun].write_complete) {
+    return;
+  }
+
+  // flush pending cache when write10 is complete
+  return msc_luns[lun].write_complete();
 }
 
 // Callback invoked when received an SCSI command not in built-in list below
@@ -254,6 +269,10 @@ void USBMSC::onRead(msc_read_cb cb) {
 
 void USBMSC::onWrite(msc_write_cb cb) {
   msc_luns[_lun].write = cb;
+}
+
+void USBMSC::onWriteComplete(msc_flush_cb cb) {
+  msc_luns[_lun].write_complete = cb;
 }
 
 void USBMSC::isWritable(bool is_writable) {

@@ -34,6 +34,9 @@ typedef int32_t (*msc_read_cb)(uint32_t lba, uint32_t offset, void *buffer, uint
 // Process data in buffer to disk's storage and return number of written bytes
 typedef int32_t (*msc_write_cb)(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize);
 
+// Callback invoked when WRITE10 command is completed (status received and accepted by host). Used to flush any pending cache.
+typedef void (*msc_flush_cb)(void);
+
 class USBMSC {
 public:
   USBMSC();
@@ -48,6 +51,7 @@ public:
   void onStartStop(msc_start_stop_cb cb);
   void onRead(msc_read_cb cb);
   void onWrite(msc_write_cb cb);
+  void onWriteComplete(msc_flush_cb cb);
 
 private:
   uint8_t _lun;
