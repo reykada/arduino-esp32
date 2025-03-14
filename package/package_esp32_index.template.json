@@ -1,16 +1,16 @@
 {
   "packages": [
     {
-      "name": "esp32",
-      "maintainer": "Espressif Systems",
-      "websiteURL": "https://github.com/espressif/arduino-esp32",
+      "name": "esp32_mod",
+      "maintainer": "Espressif Systems Mod",
+      "websiteURL": "https://github.com/reykada/arduino-esp32",
       "email": "hristo@espressif.com",
       "help": {
         "online": "http://esp32.com"
       },
       "platforms": [
         {
-          "name": "esp32",
+          "name": "esp32_mod",
           "architecture": "esp32",
           "version": "",
           "category": "ESP32",
