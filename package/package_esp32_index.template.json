@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "esp32_mod",
-      "maintainer": "Espressif Systems Mod",
+      "maintainer": "Espressif Systems",
       "websiteURL": "https://github.com/reykada/arduino-esp32",
       "email": "hristo@espressif.com",
       "help": {
@@ -13,7 +13,7 @@
           "name": "esp32_mod",
           "architecture": "esp32",
           "version": "",
-          "category": "ESP32",
+          "category": "Contributed",
           "url": "",
           "archiveFileName": "",
           "checksum": "",
@@ -40,7 +40,7 @@
           ],
           "toolsDependencies": [
             {
-              "packager": "esp32",
+              "packager": "esp32_mod",
               "name": "esp32-arduino-libs",
               "version": "idf-release_v5.3-efec039d-v1"
             },
