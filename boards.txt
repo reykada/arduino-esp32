@@ -16726,7 +16726,7 @@ adafruit_qualia_s3_rgb666.build.tarch=xtensa
 adafruit_qualia_s3_rgb666.build.bootloader_addr=0x0
 adafruit_qualia_s3_rgb666.build.target=esp32s3
 adafruit_qualia_s3_rgb666.build.mcu=esp32s3
-adafruit_qualia_s3_rgb666.build.core=esp32
+adafruit_qualia_s3_rgb666.build.core=esp32_mod
 adafruit_qualia_s3_rgb666.build.variant=adafruit_qualia_s3_rgb666
 adafruit_qualia_s3_rgb666.build.board=QUALIA_S3_RGB666
 
