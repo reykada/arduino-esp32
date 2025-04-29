@@ -42,7 +42,7 @@
             {
               "packager": "esp32",
               "name": "esp32-arduino-libs",
-              "version": "idf-release_v5.3-6a98af1f-v1"
+              "version": "idf-release_v5.3-8e95ca29-v1"
             },
             {
               "packager": "esp32",
@@ -95,63 +95,63 @@
       "tools": [
         {
           "name": "esp32-arduino-libs",
-          "version": "idf-release_v5.3-6a98af1f-v1",
+          "version": "idf-release_v5.3-8e95ca29-v1",
           "systems": [
             {
               "host": "i686-mingw32",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "x86_64-mingw32",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "arm64-apple-darwin",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "x86_64-apple-darwin",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "x86_64-pc-linux-gnu",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "i686-pc-linux-gnu",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "aarch64-linux-gnu",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             },
             {
               "host": "arm-linux-gnueabihf",
-              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-6a98af1f-v1.zip",
-              "checksum": "SHA-256:fb2d1581d21596038c1cf080f589176d5ff3beb0e864f6b97aa6c8fde997f7c7",
-              "size": "61762044"
+              "url": "https://github.com/reykada/esp32-arduino-lib-builder/releases/download/idf-release_v5.3/esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "archiveFileName": "esp32-arduino-libs-idf-release_v5.3-8e95ca29-v1.zip",
+              "checksum": "SHA-256:9ccfd8f643ffe8f41bbbda8dae57edf2b214dde6c064e24e42162dc6cd759eea",
+              "size": "61762209"
             }
           ]
         },
